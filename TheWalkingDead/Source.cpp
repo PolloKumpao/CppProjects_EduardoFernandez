@@ -77,9 +77,22 @@ private:
 
 };
 
-Zombie::Zombie():distanceToPlayer
+Zombie::Zombie() :distanceToPlayer(20 + rand() % 180), speed(rand() % 210 / 10),damage(rand()%210/10),life(rand()%101)
 {
 }
 void main() {
-
+	srand(time(nullptr));
+	Player player;
+	Zombie zombies[10];
+	bool zombiesAreAlive(Zombie zombies){
+		int i = 0;
+		int aux = 0;
+		while (i < 10){
+			if (zombies[i].life > 0) {
+				aux++;
+			}
+			i++;
+		}
+		return aux == 0;
+	}
 }
